@@ -1,15 +1,20 @@
 import React, { useState } from "react";
+import "bootstrap/dist/css/bootstrap.min.css"; 
+// for some reason this is what breaks my code on other's computers ^
+import 'bootstrap';
+// All the components
 import Header from "../src/components/Header";
 import About from "../src/components/About";
 import Contact from "../src/components/Contact";
 import Portfolio from "../src/components/Portfolio";
 import Resume from "../src/components/Resume";
 import Footer from "../src/components/Footer";
-// import { Helmet } from "react-helmet";
 import "./App.css";
+
+// This function checks to see what the value of `currentTab` is. It then returns the corresponding component to render.
 function App() {
   const [currentTab, handleTabChange] = useState("about");
-  // This method is checking to see what the value of `currentTab` is. Depending on the value of currentPage, we return the corresponding component to render.
+
   const renderTab = () => {
     if (currentTab === "About") {
       return <About />;
@@ -25,6 +30,7 @@ function App() {
     }
     return <About />;
   };
+
   return (
     <>
       <Header
@@ -36,4 +42,5 @@ function App() {
     </>
   );
 }
+
 export default App;
